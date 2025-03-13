@@ -1,0 +1,58 @@
+public class BangunDatar {
+    public double keliling() {
+        return 0;
+    }
+
+    public double luas() {
+        return 0;
+    }
+
+    public double luasPermukaan() {
+        return luas();
+    }
+}
+
+class Lingkaran extends BangunDatar {
+    double r;
+
+    public Lingkaran(double r) {
+        this.r = r;
+    }
+    public double keliling() {
+        return 2 * 3.141592653589793 * r;
+    }
+
+    public double luas() {
+        return 3.141592653589793 * r * r;
+    }
+}
+
+class Persegi extends BangunDatar {
+    double sisi;
+    public Persegi(double sisi) {
+        this.sisi = sisi;
+    }
+    public double keliling() {
+        return 4 * sisi;
+    }
+    public double luas() {
+        return sisi * sisi;
+    }
+}
+class Segitiga extends BangunDatar {
+    double alas, tinggi, sisiA, sisiB, sisiC;
+
+    public Segitiga(double alas, double tinggi, double sisiA, double sisiB, double sisiC) {
+        this.alas = alas;
+        this.tinggi = tinggi;
+        this.sisiA = sisiA;
+        this.sisiB = sisiB;
+        this.sisiC = sisiC;
+    }
+    public double keliling() {
+        return sisiA + sisiB + sisiC;
+    }
+    public double luas() {
+        return 0.5 * alas * tinggi;
+    }
+}
