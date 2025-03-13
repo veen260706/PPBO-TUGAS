@@ -1,0 +1,50 @@
+public class BangunRuang {
+    public double volume() {
+        return 0;
+    }
+    public double luasPermukaan() {
+        return 0;
+    }
+}
+class Kubus extends BangunRuang {
+    double sisi;
+    public Kubus(double sisi) {
+        this.sisi = sisi;
+    }
+    public double volume() {
+        return sisi * sisi * sisi;
+    }
+    public double luasPermukaan() {
+        return 6 * (sisi * sisi);
+    }
+}
+
+class Silinder extends BangunRuang {
+    double radius, tinggi;
+    public Silinder(double radius, double tinggi) {
+        this.radius = radius;
+        this.tinggi = tinggi;
+    }
+    public double volume() {
+        return 3.141592653589793 * (radius * radius) * tinggi;
+    }
+    public double luasPermukaan() {
+        return 2 * 3.141592653589793 * radius * (radius + tinggi);
+    }
+}
+
+class Balok extends BangunRuang {
+    double panjang, lebar, tinggi;
+    public Balok(double panjang, double lebar, double tinggi) {
+        this.panjang = panjang;
+        this.lebar = lebar;
+        this.tinggi = tinggi;
+    }
+
+    public double volume() {
+        return panjang * lebar * tinggi;
+    }
+    public double luasPermukaan() {
+        return 2 * ((panjang * lebar) + (panjang * tinggi) + (lebar * tinggi));
+    }
+}
