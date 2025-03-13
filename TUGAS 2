@@ -1,0 +1,86 @@
+import java.util.ArrayList;
+
+public class ScoreMaker {
+    private ArrayList<Double> nilaiList = new ArrayList<>();
+    public void tambahNilai(double nilai) {
+        nilaiList.add(nilai);
+    }
+
+    public double getRataRata() {
+        double total = 0;
+        for (double nilai : nilaiList) {
+            total += nilai;
+        }
+
+        if (nilaiList.size() > 0) {
+            return total / nilaiList.size();
+        } else {
+            return 0;
+        }
+    }
+    public double getNilaiTertinggi() {
+        if (nilaiList.isEmpty()) {
+            return 0;
+        }
+        double max = nilaiList.get(0);
+        for (double nilai : nilaiList) {
+            if (nilai > max) {
+                max = nilai;
+            }
+        }
+        return max;
+    }
+    public double getNilaiTerkecil() {
+        if (nilaiList.isEmpty()) {
+            return 0;
+        }
+        double min = nilaiList.get(0);
+        for (double nilai : nilaiList) {
+            if (nilai < min) {
+                min = nilai;
+            }
+        }
+        return min;
+    }
+        public double getStandarDeviasi() {
+        if (nilaiList.size() <= 1) {
+            return 0;
+        }
+        double mean = getRataRata();
+        double total = 0;
+
+        for (double nilai : nilaiList) {
+            total += (nilai - mean) * (nilai - mean);
+        }
+        return Math.sqrt(total / nilaiList.size());
+    }
+    public double getTotalScore() {
+        double total = 0;
+        for (double nilai : nilaiList) {
+            total += nilai;
+        }
+        return total;
+    }
+    public int getBanyakNilai() {
+        return nilaiList.size();
+    }
+    public void cetakHasil() {
+        System.out.println("Hasil Perhitungan:");
+        System.out.println("Rata-rata: " + getRataRata());
+        System.out.println("Nilai tertinggi: " + getNilaiTertinggi());
+        System.out.println("Nilai terkecil: " + getNilaiTerkecil());
+        System.out.println("Standar deviasi: " + getStandarDeviasi());
+        System.out.println("Total nilai: " + getTotalScore());
+        System.out.println("Banyak nilai: " + getBanyakNilai());
+    }
+
+    public static void main(String[] args) {
+        ScoreMaker nilai = new ScoreMaker();
+        nilai.tambahNilai(80);
+        nilai.tambahNilai(75);
+        nilai.tambahNilai(90);
+        nilai.tambahNilai(85);
+        nilai.tambahNilai(80);
+        nilai.cetakHasil();
+    }
+}
